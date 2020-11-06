@@ -1,0 +1,92 @@
+h2 {
+    margin: 0px;
+}
+
+.available {
+    color: green;
+}
+
+.requested {
+    color: orange;
+}
+
+.allocated {
+    color: blue;
+}
+
+.under-maintenance {
+    color: red;
+}
+
+.container-divider {
+    border-top: 1px solid #e1e4e8;
+    display: block;
+    height: 0;
+    /* margin: 8px 0; */
+}
+
+.main-container {
+    height: 87vh;
+}
+
+.filter-options {
+    padding: 5px 20px;
+}
+
+.search-filter {
+    padding: 5%
+}
+
+.filter-actions {
+    padding: 5% 0%;
+}
+
+.filter-type {
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
+mat-sidenav-content {
+    padding: 0% 5%;
+    background-color: whitesmoke;
+}
+
+.container {
+    height: 100%;
+    background-color: white;
+}
+
+.container-header {
+    overflow: hidden;
+    padding: 1% 2% 1% 1%;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.container-content {
+    overflow: auto;
+}
+
+.container-header-title {
+    float: right;
+}
+
+.container-header-content {
+    float: left;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color:aliceblue;
+}

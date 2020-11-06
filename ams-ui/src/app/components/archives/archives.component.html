@@ -1,0 +1,70 @@
+<app-top-nav></app-top-nav>
+
+
+
+<mat-sidenav-container class="main-container">
+
+    <mat-sidenav-content>
+
+        <div class="container">
+
+            <div class="container-header mat-elevation-z3">
+                <div class="container-header-content">
+                </div>
+
+                <div class="container-header-title">
+                    <h2>Assets Issued</h2>
+                </div>
+            </div>
+
+            <div class="container-divider"></div>
+
+            <div class="container-content mat-elevation-z1">
+                <table>
+                    <thead class="mat-elevation-z2">
+                        <tr>
+                            <th>Archive Id</th>
+                            <th>Asset Id</th>
+                            <th>Asignee Id</th>
+                            <th>Issue/Requested Date</th>
+                            <th>Return Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let asset of assets">
+                            <td>{{asset.id}}</td>
+                            <td>{{asset.asset_id}}</td>
+                            <td>{{asset.asignee_id}}&nbsp;</td>
+                            <td>{{asset.issue_date}}</td>
+                            <td>{{asset.return_date}}</td>
+                            <td [ngClass]="asset.status">{{asset.status}}</td>
+
+                            <td>
+                                <button *ngIf="group!='0' && asset.status == 'allocated'" mat-raised-button
+                                    (click)="returnRequest(asset.id)" color="primary">Return</button>
+
+                                <button *ngIf="group=='0' && asset.status == 'requested'" mat-raised-button
+                                    (click)="approveRequest(asset.id)"
+                                    style="background-color: springgreen;">Approve</button>
+                                <button *ngIf="group=='0' && asset.status == 'requested'" mat-raised-button
+                                    (click)="rejectRequest(asset.id)"
+                                    style="float: right; background-color: red;">Reject</button>
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

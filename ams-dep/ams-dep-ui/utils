@@ -1,0 +1,2 @@
+docker build --tag=ams:0.0.3 .
+docker run -d --network host ams:0.0.3

@@ -1,0 +1,21 @@
+mat-card {
+    width: 330px;
+    margin: 0 auto;
+    padding: 30px 16px;
+}
+
+mat-card-header {
+    justify-content: center;
+}
+
+mat-card-content, mat-card-actions {
+    padding: 0 21px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+:host >>> .mat-checkbox-label {
+    white-space: initial;
+}

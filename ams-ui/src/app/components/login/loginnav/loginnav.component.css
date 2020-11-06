@@ -1,0 +1,19 @@
+.fill-space {
+    flex: auto 1  1;
+}
+
+mat-icon {
+    vertical-align: middle;
+}
+
+mat-menu {
+    padding: 5px;
+}
+
+.profile-note {
+    padding: 12px;
+}
+
+.sign-in {
+    padding: 12px;
+}

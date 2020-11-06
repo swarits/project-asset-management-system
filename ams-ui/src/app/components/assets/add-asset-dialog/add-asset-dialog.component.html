@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Add New Asset</h2>
+
+<mat-dialog-content>
+<mat-form-field>
+  <input matInput placeholder="Name Of Asset" [formControl]="name" required>
+  <mat-error *ngIf="name.invalid">Enter valid asset name</mat-error>
+</mat-form-field>
+
+<div>
+  <mat-form-field style="max-width: 100px;float:left;">
+    <mat-label>Asset Category</mat-label>
+    <mat-select [(value)]="category" required>
+      <mat-option value="software">Software</mat-option>
+      <mat-option value="hardware">Hardware</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="addAsset()" [disabled]="name.invalid || category==null">Add
+    Asset</button>
+</mat-dialog-actions>

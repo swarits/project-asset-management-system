@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" class="mat-elevation-z5">
+  <span>
+      <span style="font-size: x-large;font-weight: bolder;font-style: italic;">A</span><span>sset</span>
+      <span style="font-size: x-large;font-weight: bolder;font-style: italic;">M</span><span>anagement</span>
+      <span style="font-size: x-large;font-weight: bolder;font-style: italic;">S</span><span>ystem</span>
+
+  </span>
+  <span class="fill-space"></span>
+  <span>
+      <button mat-icon-button aria-label="Profile" [matMenuTriggerFor]="profileMenu">
+          <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #profileMenu class="profileMenu">
+          <div class="profile-note">
+              <span >Already a member?</span>
+          </div>
+          <hr style="color: gray;">
+          <div class="sign-in">
+              <button mat-flat-button color="primary" style="float: center;"
+                  (click)="signIn()">
+                  <span>Sign In</span>
+              </button>
+          </div>
+
+      </mat-menu>
+  </span>
+</mat-toolbar>

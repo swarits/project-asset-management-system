@@ -1,0 +1,51 @@
+.fill-space {
+    flex: auto 1  1;
+}
+
+mat-icon {
+    vertical-align: middle;
+}
+
+mat-menu {
+    padding: 5px;
+}
+
+.profile-note {
+    padding: 0 12px;
+    color: #24292e;
+    background-image: linear-gradient(-180deg,#E0FFFF,#6495ed 90%);
+}
+
+.sign-out {
+    width: 100%;
+    border: none;
+    font-weight: bold;
+}
+
+.dropdown-divider {
+    border-top: 1px solid #e1e4e8;
+    display: block;
+    height: 0;
+    margin: 8px 0;
+}
+
+.dropdown-item {
+    display: block;
+    overflow: hidden;
+    padding: 4px 10px 4px 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+a {
+    color: #24292e;
+    text-decoration:none;
+}
+
+a:hover, button:hover {
+    background-color: cornflowerblue;
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}

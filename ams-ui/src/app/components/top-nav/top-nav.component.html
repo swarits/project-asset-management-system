@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="mat-elevation-z5">
+  <span>
+    <span style="font-size: x-large;font-weight: bolder;font-style: italic;">A</span><span>sset</span>
+    <span style="font-size: x-large;font-weight: bolder;font-style: italic;">M</span><span>anagement</span>
+    <span style="font-size: x-large;font-weight: bolder;font-style: italic;">S</span><span>ystem</span>
+  </span>
+  <span class="fill-space"></span>
+  <span>
+    <button mat-icon-button aria-label="Profile" [matMenuTriggerFor]="profileMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #profileMenu class="profileMenu">
+      <div class="profile-note">
+        <span>Signed in as</span><br>
+        <span><b>{{name}}</b></span>
+      </div>
+
+      <div class="dropdown-divider"></div>
+
+      <a routerLink="/assets" routerLinkActive="active" class="dropdown-item">Assets</a>
+
+      <a routerLink="/archives" routerLinkActive="active" class="dropdown-item">Timeline(Issued/returned)</a>
+
+      <div class="dropdown-divider"></div>
+
+      <button (click)="signOut()" class="sign-out dropdown-item">Sign Out</button>
+
+    </mat-menu>
+  </span>
+</mat-toolbar>

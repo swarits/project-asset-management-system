@@ -1,0 +1,61 @@
+<app-nav></app-nav>
+<mat-card style="margin-top: 3%;">
+  <mat-card-header>
+    <mat-card-title>Admin Sign Up</mat-card-title>
+    <mat-card-subtitle>Register and Manage assets effectively.</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <mat-form-field>
+      <input matInput placeholder="First Name" [formControl]="firstname_form_control" required>
+      <mat-error *ngIf="firstname_form_control.invalid">{{getNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Last Name" [(ngModel)]="lastname">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email" [formControl]="email_form_control" required>
+      <mat-error *ngIf="email_form_control.invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <form [formGroup]="signupForm" #pswdForm>
+      <mat-form-field>
+        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+        <mat-error *ngIf="signupForm.hasError('required', 'password')">
+          Please enter your new password
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Verify Password" [type]="hide2 ? 'password' : 'text'"
+          formControlName="confirmPassword" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="signupForm.hasError('notSame')">
+          Passwords do not match
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide2">
+          <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+      </mat-form-field>
+    </form>
+
+
+    <mat-checkbox color="primary" [(ngModel)]="checkTns" aria-required="required">I have read and agree to the <a
+        href="#">A.M.S. Terms of
+        Use</a>. *</mat-checkbox>
+  </mat-card-content>
+
+  <mat-card-actions style="padding-bottom: 10px; padding-top: 5px;">
+    <button mat-raised-button (click)="signUp()" color="primary"
+      [disabled]="firstname_form_control.invalid || email_form_control.invalid || !checkTns || signupForm.invalid">Create Account</button>
+  </mat-card-actions>
+
+</mat-card>

@@ -1,0 +1,94 @@
+<app-top-nav></app-top-nav>
+
+<mat-sidenav-container class="main-container" (backdropClick)="close()">
+    <mat-sidenav #sidenav (keydown.escape)="close()" disableClose>
+
+        <div class="filter-actions">
+            <button mat-button color="warn" (click)="resetFilters()">Reset Filters</button>
+            <button mat-flat-button color="primary" (click)="applyFilters()" style="float: right;">Apply
+                Filters</button>
+        </div>
+
+        <div class="search-filter mat-elevation-z3">
+            <div class="filter-type">
+                Category:
+            </div>
+
+            <div class="filter-options">
+                <span *ngFor="let category of mainCats">
+                    <mat-checkbox color="primary" [checked]="categories.includes(category)"
+                        (change)="checkCategory(category,$event)">
+                        {{category}}
+                    </mat-checkbox>
+                    <br>
+                </span>
+            </div>
+        </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <div class="container">
+
+            <div class="container-header mat-elevation-z3">
+                <div class="container-header-content">
+                    <button mat-icon-button color="primary" class="mat-elevation-z5"
+                        style="background-color: aliceblue;" aria-label="Filters" (click)="sidenav.open()">
+                        <mat-icon>filter_list</mat-icon>
+                    </button>
+                </div>
+
+                <div class="container-header-title">
+                    <h2>Assets</h2>
+                </div>
+            </div>
+
+            <div class="container-divider"></div>
+
+            <div class="container-content mat-elevation-z1">
+                <table>
+                    <thead class="mat-elevation-z2">
+                        <tr>
+                            <th>Asset Id</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Date Created</th>
+                            <th>Status</th>
+                            <th *ngIf="group!='0'">Request Assets</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let asset of assets">
+                            <td>{{asset.id}}</td>
+                            <td>{{asset.name}}</td>
+                            <td>{{asset.category}}&nbsp;</td>
+                            <td>{{asset.date_created}}</td>
+                            <td [ngClass]="asset.status">{{asset.status}}</td>
+
+                            <td *ngIf="group!='0'">
+                                <button mat-raised-button (click)="requestAsset(asset.id)"
+                                    style="background-color: springgreen;">Request</button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+                <mat-card *ngIf="group=='0'">
+                    <button mat-icon-button aria-label="Add Asset" (click)="addAsset()"
+                        style="min-height: 10px; margin-left: 50%;">
+                        <mat-icon style="color: black;">add_circle_outline</mat-icon>
+                    </button>
+                </mat-card>
+
+            </div>
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
