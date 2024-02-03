@@ -8,7 +8,7 @@ app = Flask(__name__)
 #mongodb connection properties
 db_username = 'uuuuu'
 db_password = 'xxxxx'
-url = f'mongodb+srv://{db_username}:{db_password}@cluster0-dezor.mongodb.net/test?retryWrites=true&w=majority'
+url = f'mongodb+srv://{db_username}:{db_password}@cluste123.mongodb.net/test?retryWrites=true&w=majority'
 client = MongoClient(url)
 db = client.ams_db
 
